@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/fabiano/Magnetis/magnetis_web'
+let g:netrw_dirhist_2='/Users/fabiano/PrincipioInteligente/fbzga'
+let g:netrw_dirhist_3='/Users/fabiano/PrincipioInteligente/fbzga/.git'
+let g:netrw_dirhist_4='/Users/fabiano/PrincipioInteligente/fbzga'
+let g:netrw_dirhist_5='/Users/fabiano/PrincipioInteligente/fbzga/views'
+let g:netrw_dirhist_6='/Users/fabiano/PrincipioInteligente/fbzga'
+let g:netrw_dirhist_7='/Users/fabiano/PrincipioInteligente/fbzga/views'
+let g:netrw_dirhist_8='/Users/fabiano/Magnetis/magnetis_web'
