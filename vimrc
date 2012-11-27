@@ -4,13 +4,16 @@
 "              I decided to create my own vimrc from scratch with the objectives of having more
 "              control of the features and add plugins and customization on demand
 
-" pathtogen call https://github.com/tpope/vim-pathogen/ 
+" pathtogen call https://github.com/tpope/vim-pathogen/
 call pathogen#infect()
 
 " Syntax highlight is needed to enjoy life
 syntax on
 
 set t_Co=256
+"set background=dark
+set background=light
+colorscheme solarized
 
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
@@ -77,7 +80,7 @@ nmap <tab> :tabnext<CR>
 nmap <S-tab> :tabprevious<CR>
 
 " map to make it use to use zenconding
-map! <C-Z>, <C-Y>,  
+map! <C-Z>, <C-Y>,
 
 " fuzzy finder shortcut to search for all files from the current folder until
 " its subdirectories
@@ -93,6 +96,20 @@ autocmd vimenter * if !argc() | NERDTree | endif
 
 " FOLDING
 "set foldmethod=expr
-"set foldexpr=getline(v:lnum)=~'^\\s*#' 
+"set foldexpr=getline(v:lnum)=~'^\\s*#'
 au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
+" max of open tabs opened
+set tabpagemax=100
+
+
+" Blank spaces killer
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd WinEnter * match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+" Run to clean them all
+command FixSpaces %s/\s\+$/
