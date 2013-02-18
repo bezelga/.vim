@@ -113,3 +113,6 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 " Run to clean them all
 command FixSpaces %s/\s\+$/
+
+" reload the file on changes
+set autoread
