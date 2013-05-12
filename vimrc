@@ -116,3 +116,26 @@ command FixSpaces %s/\s\+$/
 
 " reload the file on changes
 set autoread
+
+
+" Rails.vim custom navigation commands
+" :Rservice
+autocmd User Rails Rnavcommand service app/services -suffix=_service.rb
+
+" :Rpresenter
+autocmd User Rails Rnavcommand presenter app/presenters -suffix=_presenter.rb
+
+" :Rworker
+autocmd User Rails Rnavcommand worker app/workers -suffix=_worker.rb
+
+" :Rcalculation
+autocmd User Rails Rnavcommand calculation app/calculations -suffix=_calculation.rb
+
+" :use F5 to test the current file with Rspec
+nmap <F5> :!rspec %<CR>
+map <F5> :!rspec %<CR>
+
+" Rspec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
