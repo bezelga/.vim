@@ -164,7 +164,7 @@ set clipboard=unnamed
 
 
 "easy motion leader
-let g:EasyMotion_leader_key = '<Leader>'
+"let g:EasyMotion_leader_key = '<Leader>'
 
 " copy and cut to clipboard
 vmap <C-c> :w !pbcopy<CR><CR>
