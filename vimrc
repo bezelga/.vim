@@ -37,6 +37,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
+Bundle 'thoughtbot/vim-rspec'
 " END PLUGINS
 
 " Attempt to determine the type of a file based on its name and possibly its
