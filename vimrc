@@ -11,9 +11,10 @@
 syntax on
 
 set t_Co=256
-set background=dark
+"set background=dark
 "set background=light
-colorscheme solarized
+"colorscheme solarized
+colorscheme whitedust
 
 
 " Set 'nocompatible' to ward off unexpected things that your distro might
@@ -38,6 +39,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
 Bundle 'thoughtbot/vim-rspec'
+Bundle '/godlygeek/tabular'
 " END PLUGINS
 
 " Attempt to determine the type of a file based on its name and possibly its
