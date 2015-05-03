@@ -11,11 +11,8 @@
 syntax on
 
 set t_Co=256
+set background=light
 "set background=dark
-"set background=light
-"colorscheme solarized
-colorscheme whitedust
-
 
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
@@ -24,7 +21,9 @@ set nocompatible
 "Vundle
 filetype off "required by vundle
 set rtp+=~/.vim/bundle/vundle/
+set runtimepath+=$GOROOT/misc/vim
 call vundle#rc() "call bundle
+set colorcolumn=100
 
 Bundle 'gmarik/vundle'
 
@@ -36,12 +35,20 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
+Bundle 'elzr/vim-json'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
 Bundle 'thoughtbot/vim-rspec'
-Bundle '/godlygeek/tabular'
+Bundle 'godlygeek/tabular'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'tpope/vim-ragtag'
+Bundle 'scrooloose/syntastic'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'ervandew/supertab'
+Bundle "ekalinin/Dockerfile.vim"
 " END PLUGINS
 
+colorscheme solarized
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
@@ -162,6 +169,9 @@ map <F5> :!rspec %<CR>
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+let g:rspec_command = "!bundle exec rspec --color {spec}"
 
 set clipboard=unnamed
 
@@ -172,3 +182,17 @@ set clipboard=unnamed
 " copy and cut to clipboard
 vmap <C-c> :w !pbcopy<CR><CR>
 vmap <C-x> :!pbcopy<CR>
+
+set pastetoggle=<Leader>g
+
+autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+
+
+" JS linter:
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_scss_checkers = ['scss_lint']
+
+"noremap <Up> <NOP>
+"noremap <Down> <NOP>
+"noremap <Left> <NOP>
+"noremap <Right> <NOP>
