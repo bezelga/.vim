@@ -20,39 +20,47 @@ set nocompatible
 
 "Vundle
 filetype off "required by vundle
-set rtp+=~/.vim/bundle/vundle/
-set runtimepath+=$GOROOT/misc/vim
-call vundle#rc() "call bundle
-set colorcolumn=100
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 " PLUGINS
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
-Bundle 'elzr/vim-json'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'kien/ctrlp.vim'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'godlygeek/tabular'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'tpope/vim-ragtag'
-Bundle 'scrooloose/syntastic'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'ervandew/supertab'
-Bundle "ekalinin/Dockerfile.vim"
-" END PLUGINS
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-surround'
+Plugin 'elzr/vim-json'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'kien/ctrlp.vim'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-ragtag'
+Plugin 'scrooloose/syntastic'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'ervandew/supertab'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'queyenth/oxeded.vim'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'reedes/vim-colors-pencil'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'fatih/vim-go'
+Plugin 'tpope/vim-dispatch'
 
-colorscheme solarized
-" Attempt to determine the type of a file based on its name and possibly its
-" contents. Use this to allow intelligent auto-indenting for each filetype,
-" and for plugins that are filetype specific.
-filetype indent plugin on
+" END PLUGINS
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+colorscheme pencil
+let g:pencil_higher_contrast_ui = 0   " 0=low (def), 1=high
 
 " Show partial commands in the last line of the screen
 set showcmd
@@ -130,7 +138,7 @@ autocmd vimenter * if !argc() | NERDTree | endif
 au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 
 " max of open tabs opened
-set tabpagemax=100
+"set tabpagemax=100
 
 
 " Blank spaces killer
@@ -171,10 +179,9 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
-let g:rspec_command = "!bundle exec rspec --color {spec}"
+let g:rspec_command = "! docker exec -t magnetis_web_1 bin/rspec --color {spec}"
 
 set clipboard=unnamed
-
 
 "easy motion leader
 "let g:EasyMotion_leader_key = '<Leader>'
@@ -196,3 +203,7 @@ let g:syntastic_scss_checkers = ['scss_lint']
 "noremap <Down> <NOP>
 "noremap <Left> <NOP>
 "noremap <Right> <NOP>
+"set colorcolumn=100
+if filereadable(glob("./.vimrc.local"))
+  source ./.vimrc.local
+endif
