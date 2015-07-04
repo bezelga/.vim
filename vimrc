@@ -4,26 +4,21 @@
 "              I decided to create my own vimrc from scratch with the objectives of having more
 "              control of the features and add plugins and customization on demand
 
-" pathtogen call https://github.com/tpope/vim-pathogen/
-"exec pathogen#infect()
-
 " Syntax highlight is needed to enjoy life
 syntax on
 
 set t_Co=256
 set background=light
-"set background=dark
 
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
 
-"Vundle
+" Vundle to manage plugins
 filetype off "required by vundle
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -31,28 +26,29 @@ Plugin 'gmarik/Vundle.vim'
 " PLUGINS
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
 Plugin 'elzr/vim-json'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'kien/ctrlp.vim'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'godlygeek/tabular'
-Plugin 'tpope/vim-ragtag'
 Plugin 'scrooloose/syntastic'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ervandew/supertab'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'queyenth/oxeded.vim'
-Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'reedes/vim-colors-pencil'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'fatih/vim-go'
+
+" tpope collection
 Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-surround'
 
 " END PLUGINS
 " All of your Plugins must be added before the following line
