@@ -8,7 +8,7 @@
 syntax on
 
 set t_Co=256
-set background=light
+"set background=light
 
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
@@ -50,13 +50,16 @@ Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 
+Plugin 'rust-lang/rust.vim'
+Plugin 'isRuslan/vim-es6'
+
 " END PLUGINS
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 colorscheme pencil
-let g:pencil_higher_contrast_ui = 0   " 0=low (def), 1=high
+"let g:pencil_higher_contrast_ui = 0   " 0=low (def), 1=high
 
 " Show partial commands in the last line of the screen
 set showcmd
